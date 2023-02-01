@@ -53,7 +53,7 @@ jobs:
     - name: Create Resources
       uses: azure/arm-deploy@v1
       with:
-        deplymentName: ${{github.run_number}}
+        deploymentName: ${{github.run_number}}
         resourceGroupName: ${{env.RESOURCE_GROUP_NAME}}
         region: westus
         template: ./Azure/main.bicep
