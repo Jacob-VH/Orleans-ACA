@@ -54,7 +54,7 @@ jobs:
       uses: azure/arm-deploy@v1
       with:
         deplymentName: ${{github.run_number}}
-        scope: subsciption
+        scope: subscription
         region: westus
         template: ./Azure/main.bicep
         
