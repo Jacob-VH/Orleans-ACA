@@ -50,15 +50,14 @@ jobs:
 
           az group create -l ${{ env.REGION }} -n ${{ env.RESOURCE_GROUP_NAME }}
 
-    - name: Creating resources
-      uses: azure/CLI@v1
+    - name: Create Resources
+      uses: azure/arm-deploy@v1
       with:
-        inlineScript: >
-          echo "Creating resources"
-          echo "Executing az deployment group create --resource-group ${{ env.RESOURCE_GROUP_NAME }} --template-file '/github/workspace/Azure/main.bicep' --debug"
-
-          az deployment group create --resource-group ${{ env.RESOURCE_GROUP_NAME }} --template-file '/github/workspace/Azure/main.bicep' --debug
-
+        deplymentName: ${{github.run_number}}
+        scope: subsciption
+        region: westus
+        template: ./Azure/main.bicep
+        
   build:
     runs-on: ubuntu-latest
     needs: provision
