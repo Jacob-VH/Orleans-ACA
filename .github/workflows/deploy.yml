@@ -1,4 +1,4 @@
-name: Build and deploy .NET application to Container App silo
+name: Build and deploy
 
 on:
   [workflow_dispatch]
@@ -54,7 +54,7 @@ jobs:
       uses: azure/arm-deploy@v1
       with:
         deplymentName: ${{github.run_number}}
-        scope: subscription
+        resourceGroupName: ${{env.RESOURCE_GROUP_NAME}}
         region: westus
         template: ./Azure/main.bicep
         
